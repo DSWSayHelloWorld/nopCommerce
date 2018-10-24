@@ -1992,9 +1992,6 @@
   <LocaleResource Name="Admin.Catalog.Attributes.SpecificationAttributes.Options.Fields.NumberOfAssociatedProducts">
     <Value>Number of associated products</Value>
   </LocaleResource>
-  <LocaleResource Name="Admin.Catalog.Attributes.SpecificationAttributes.Options.Fields.Value.Required">
-    <Value>Please provide a value</Value>
-  </LocaleResource>
   <LocaleResource Name="Admin.Catalog.Attributes.SpecificationAttributes.Options.SaveBeforeEdit">
     <Value>You need to save the specification attribute before you can add options for this specification attribute page.</Value>
   </LocaleResource>

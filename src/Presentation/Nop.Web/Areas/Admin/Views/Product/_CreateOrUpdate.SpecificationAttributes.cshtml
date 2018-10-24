@@ -46,8 +46,21 @@
                                             });
                                         }
                                     });
-                                } else if(options.model.AttributeTypeId === @((int) SpecificationAttributeType.CustomText)) {
-                                    $('<input class="k-textbox" required name="ValueRaw" validationMessage="@T("Admin.Catalog.Attributes.SpecificationAttributes.Options.Fields.Value.Required")" data-bind="value:ValueRaw" />')
+                                } else if (options.model.AttributeTypeId === @((int) SpecificationAttributeType.CustomHtmlText)) {
+                                    $('<div data-bind="value:ValueRaw" style="min-height: 40px"></div>')
+                                    .appendTo(container)
+                                    .kendoEditor({
+                                        tools: [
+                                            'bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript',
+                                            'justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull',
+                                            'createLink', 'unlink',
+                                            'viewHtml'
+                                        ]
+                                    })
+                                    .data("kendoEditor");
+                                }
+                                else {
+                                    $('<input class="k-textbox" name="ValueRaw" data-bind="value:ValueRaw" />')
                                         .appendTo(container);
                                 }
                             }
@@ -137,8 +150,15 @@
                                         field: "ValueRaw",
                                         title: "@T("Admin.Catalog.Products.SpecificationAttributes.Fields.Value")",
                                         width: 200,
-                                        encoded: false,  
-                                        editor: setValueEditor
+                                        encoded: false,
+                                        editor: setValueEditor,
+                                        template: function(item) {
+                                            if (item.AttributeTypeId ===
+                                                @((int) SpecificationAttributeType.CustomHtmlText)) {
+                                                item.ValueRaw = $('<div></div>').html(item.ValueRaw).text();
+                                            }
+                                            return !!item.ValueRaw ? item.ValueRaw : "";
+                                        }
                                     }, {
                                         field: "AllowFiltering",
                                         title: "@T("Admin.Catalog.Products.SpecificationAttributes.Fields.AllowFiltering")",

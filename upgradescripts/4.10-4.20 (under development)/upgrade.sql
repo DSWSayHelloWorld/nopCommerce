@@ -149,9 +149,6 @@ set @resources='
   <LocaleResource Name="ShoppingCart.DiscountCouponCode.Invalid">
     <Value>This coupon code ({0}) is invalid or no longer available.</Value>
   </LocaleResource>
-  <LocaleResource Name="Admin.Catalog.Attributes.SpecificationAttributes.Options.Fields.Value.Required">
-    <Value>Please provide a value</Value>
-  </LocaleResource>
 </Language>
 '
 
